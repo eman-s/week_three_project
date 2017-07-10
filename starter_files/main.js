@@ -20,26 +20,81 @@ function question1 () {
 
 // 2: Show me how to get an array of items that cost between $14.00 and $18.00 USD
 function question2 () {
-  // Answer:
+  let items = []
+  for(p in data){
+    if (data[p].price >= 14.00 && data[p].price <= 18.00){
+      items.push(data[p].title);
+    }
+  }
+  console.log(items);
 }
 
 
 
 // 3: Which item has a "GBP" currency code? Display it's name and price.
 function question3 () {
+  for(c in data){
+    if (data[c].currency_code === "GBP"){
+      console.log(data[c].title, data[c].price, "pounds");
+    }
+  }
   // Answer:
 }
 
 
 // 4: Display a list of all items who are made of wood.
 function question4 () {
-  // Answer:
+  let wooditems = []
+  for(w in data){
+    if (data[w].materials){
+      let materials = data[w].materials;
+      for(i in materials){
+        if (materials[i] === "wood"){
+          wooditems.push(data[w].title);
+        }
+      }
+    }
+  }
+  console.log(wooditems);
 }
-
 
 // 5: Which items are made of eight or more materials?
 //    Display the name, number of items and the items it is made of.
 function question5 () {
+  data.forEach(function(item){
+    if (item.materials.length >= 8){
+       item.materials.forEach(function(material){
+      console.log(material)});
+      console.log(item.title, item.materials.length);
+    }
+
+  })
+
+// function question5 () {
+//  data.forEach(function(item){
+//   if(item.materials.length > 8){
+//     console.log(item.title, item.quantity, item.materials.forEach(function(material){
+//       console.log(material)
+//     }));
+//   }
+//  });
+//
+// }
+  // for(i in data){
+  //   if(data[i].materials){
+  //     let materials = data[i].materials;
+  //     for(n in materials){
+  //       if (materials[n]){
+  //         let materialsnumber = materials[n].length;
+  //         for(x in materialsnumber){
+  //           if(materialsnumber[x] >= 8){
+  //             console.log(data[i].title, materials[n].length, materials[n]);
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
   // Answer:
 }
 
@@ -47,5 +102,6 @@ function question5 () {
 // 6: How many items were made by their sellers?
 // Answer:
 function question6 () {
+  
   // Answer:
 }
