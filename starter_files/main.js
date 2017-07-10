@@ -13,7 +13,7 @@ function question1 () {
   for(p in data){
     (total += data[p].price);
   }
-  avg = total / data.length;
+  let avg = total / data.length;
   console.log(avg.toFixed(2));
 }
 
@@ -102,6 +102,11 @@ function question5 () {
 // 6: How many items were made by their sellers?
 // Answer:
 function question6 () {
-  
-  // Answer:
+  data.forEach(function(sellers){
+    if (sellers.who_made === "i_did"){
+      console.log(sellers.length);
+    }
+
+  });
+
 }
