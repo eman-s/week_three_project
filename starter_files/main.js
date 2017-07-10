@@ -63,9 +63,7 @@ function question4 () {
 function question5 () {
   data.forEach(function(item){
     if (item.materials.length >= 8){
-       item.materials.forEach(function(material){
-      console.log(material)});
-      console.log(item.title, item.materials.length);
+      console.log(item.title + item.materials.length + item.materials.map(function(material){ return material }))
     }
 
   })
@@ -102,11 +100,12 @@ function question5 () {
 // 6: How many items were made by their sellers?
 // Answer:
 function question6 () {
+  let sellerMade = 0
   data.forEach(function(sellers){
     if (sellers.who_made === "i_did"){
-      console.log(sellers.length);
+    sellerMade++
     }
 
   });
-
+  console.log(sellerMade + " items were made by sellers");
 }
