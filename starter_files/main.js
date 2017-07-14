@@ -8,9 +8,9 @@ console.log(data);
 
 // 1: Show me how to calculate the average price of all items.
 
-function question1 () {
+function question1() {
   let total = 0
-  for(p in data){
+  for (p in data) {
     (total += data[p].price);
   }
   let avg = total / data.length;
@@ -19,10 +19,10 @@ function question1 () {
 
 
 // 2: Show me how to get an array of items that cost between $14.00 and $18.00 USD
-function question2 () {
+function question2() {
   let items = []
-  for(p in data){
-    if (data[p].price >= 14.00 && data[p].price <= 18.00){
+  for (p in data) {
+    if (data[p].price >= 14.00 && data[p].price <= 18.00) {
       items.push(data[p].title);
     }
   }
@@ -32,9 +32,9 @@ function question2 () {
 
 
 // 3: Which item has a "GBP" currency code? Display it's name and price.
-function question3 () {
-  for(c in data){
-    if (data[c].currency_code === "GBP"){
+function question3() {
+  for (c in data) {
+    if (data[c].currency_code === "GBP") {
       console.log(data[c].title, data[c].price, "pounds");
     }
   }
@@ -43,13 +43,13 @@ function question3 () {
 
 
 // 4: Display a list of all items who are made of wood.
-function question4 () {
+function question4() {
   let wooditems = []
-  for(w in data){
-    if (data[w].materials){
+  for (w in data) {
+    if (data[w].materials) {
       let materials = data[w].materials;
-      for(i in materials){
-        if (materials[i] === "wood"){
+      for (i in materials) {
+        if (materials[i] === "wood") {
           wooditems.push(data[w].title);
         }
       }
@@ -60,24 +60,24 @@ function question4 () {
 
 // 5: Which items are made of eight or more materials?
 //    Display the name, number of items and the items it is made of.
-function question5 () {
-  data.forEach(function(item){
-    if (item.materials.length >= 8){
-      console.log(item.title + item.materials.length + item.materials.map(function(material){ return material }))
-    }
-
-  })
-
 // function question5 () {
-//  data.forEach(function(item){
-//   if(item.materials.length > 8){
-//     console.log(item.title, item.quantity, item.materials.forEach(function(material){
-//       console.log(material)
-//     }));
-//   }
-//  });
+//   data.forEach(function(item){
+//     if (item.materials.length >= 8){
+//       console.log(item.title + item.materials.length + item.materials.map(function(material){ return material }))
+//     }
 //
-// }
+//   })
+
+function question5() {
+  data.forEach(function(item) {
+    if (item.materials.length > 8) {
+      console.log(item.title, item.quantity, item.materials.forEach(function(material) {
+        console.log(material)
+      }));
+    }
+  });
+  //
+  // }
   // for(i in data){
   //   if(data[i].materials){
   //     let materials = data[i].materials;
@@ -99,11 +99,11 @@ function question5 () {
 
 // 6: How many items were made by their sellers?
 // Answer:
-function question6 () {
+function question6() {
   let sellerMade = 0
-  data.forEach(function(sellers){
-    if (sellers.who_made === "i_did"){
-    sellerMade++
+  data.forEach(function(sellers) {
+    if (sellers.who_made === "i_did") {
+      sellerMade++
     }
 
   });
